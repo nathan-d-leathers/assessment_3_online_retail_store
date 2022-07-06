@@ -1,13 +1,14 @@
 {% extends "generica_app/layout.html" %}
+
 {% load static %}
 
-{% block electronics-content%} 
+{% block bed-bath-content%} 
 <div class="container">
   <h1 style="margin-bottom: 2%;">
-    <u>Electronics and Electronic Acessories</u>
+    <u>Bedroom and Bathroom Decour and Acessories</u>
   </h1>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-  {% for product in electronics_list %}
+  {% for product in bed_and_bath_list %}
   <div class="col-mb-4">
       <div class="card border-dark">
          <img src="{{product.img_url}}" class="card-img-top" alt="..."> 

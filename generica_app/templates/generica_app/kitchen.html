@@ -1,60 +1,28 @@
 {% extends "generica_app/layout.html" %}
+{% load static %}
 
 {% block kitchen-content%} 
-  <div class="container">
-    <h1 style="margin-bottom: 2%;">
-      <u>Kitchen Appliances, Acessories, & Decour</u>
-    </h1>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-    <div class="col-mb-4">
-        <div class="card border-dark">
-          <img src="https://media.istockphoto.com/photos/stove-picture-id497479040?k=6&m=497479040&s=170667a&w=0&h=hephdciR_-The2Vhy7o_LSK6-y6lTqQpURfSKmWQYyI=" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Stove</h5>
-            <p class="card-text">Stove make food hot and taste good.</p>
-            <hr>
-            <h6><b>$600.00</b></h6>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    <div class="col-mb-4">
+<div class="container">
+  <h1 style="margin-bottom: 2%;">
+    <u>Kitchen Appliances and Acessories</u>
+  </h1>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+  {% for product in kitchen_list %}
+  <div class="col-mb-4">
       <div class="card border-dark">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fhartville-hardware%2Fimage%2Fupload%2Fd_nopicture_tn.png%2Ff_auto%2Cq_auto%2Cfl_lossy%2Cw_458%2Ch_458%2Cc_fit%2FProducts%2FKRFF300ESS.jpg&f=1&nofb=1" class="card-img-top" alt="...">
+         <img src="{{product.img_url}}" class="card-img-top" alt="..."> 
         <div class="card-body">
-          <h5 class="card-title">Refridgerator</h5>
-          <p class="card-text">Cold box make food last logn time.</p>
+           <h5 class="card-title">{{product.title}}</h5>
+           <p class="card-text">{{product.description}}</p>
           <hr>
-          <h6><b>$850.00</b></h6>
+           <h6><b>${{product.price}}</b></h6>
           <button>Add to Cart</button>
         </div>
       </div>
     </div>
-    <div class="col-mb-4">
-      <div class="card border-dark">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftarget.scene7.com%2Fis%2Fimage%2FTarget%2FGUEST_095c0c95-060f-42d0-8d2a-8b6c900d5e46%3Fwid%3D488%26hei%3D488%26fmt%3Dpjpeg&f=1&nofb=1" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Pots & Pans</h5>
-          <p class="card-text">Middleman between Hot Stove and Cold Box.</p>
-          <hr>
-          <h6><b>$120.00</b></h6>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-    </div>
-    <div class="col mb-4">
-        <div class="card border-dark">
-          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FDishwasher-PNG-Image.png&f=1&nofb=1" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Dishwasher</h5>
-            <p class="card-text">Make Pots & Pans Shiny and New.</p>
-            <hr>
-          <h6><b>$460.00</b></h6>
-          <button>Add to Cart</button>
-          </div>
-        </div>
-      </div>
+    {% endfor %}
+  </div>
 </div>
-</div>
-
 {% endblock %}
+
+

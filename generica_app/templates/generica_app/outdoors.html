@@ -1,19 +1,26 @@
 {% extends "generica_app/layout.html" %}
+{% load static %}
 
 {% block outdoors-content%} 
-<h1>The Mountains are Calling and I must Go...</h1>
 <div class="container">
-    <div class="row" max-width="200px" height="auto">
-      <div class="col-sm">
-        <img id="outdoor_1" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-BD2OOjYRRGw%2FXekFEFkuAMI%2FAAAAAAAAAZA%2FN9E_J_vaXUscCCboVrRCg2IZMxlr-hmvACLcBGAsYHQ%2Fs1600%2F71HX4NJli0L._AC_SL1500_.jpg&f=1&nofb=1" alt="">
-      </div>
-      <div class="col-sm">
-        <img id="outdoor_2" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.aldi.com.au%2Ffileadmin%2Ffm-dam%2FProducts%2FSpecial_Buys%2FSpecial_Buys_2020%2FWeek_52%2FSAT%2FWK52_PD_388x314_53b.jpg&f=1&nofb=1" alt="">
-      </div>
-      <div class="col-sm">
-        <img id="outdoor_3" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcanoeing.com%2Fwp-content%2Fuploads%2F2016%2F08%2Fclipper18jensenstock.jpg&f=1&nofb=1" alt="">
+  <h1 style="margin-bottom: 2%;">
+    <u>Outdoor Gear and Acessories</u>
+  </h1>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+  {% for product in outdoors_list %}
+  <div class="col-mb-4">
+      <div class="card border-dark">
+         <img src="{{product.img_url}}" class="card-img-top" alt="..."> 
+        <div class="card-body">
+           <h5 class="card-title">{{product.title}}</h5>
+           <p class="card-text">{{product.description}}</p>
+          <hr>
+           <h6><b>${{product.price}}</b></h6>
+          <button>Add to Cart</button>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-
+</div>
 {% endblock %}

@@ -25,6 +25,10 @@ body {
     margin-bottom: 23px;
 }
 
+/* #product-card {
+    height: calc(100vh/2);
+} */
+
 .search {
     border-radius: 50%;
     padding: 0%;
@@ -45,6 +49,11 @@ body {
 
 .row-image{
 	width: 100px;
+}
+
+.card-image-top {
+    width: 238px;
+    height: 238px;
 }
 
 .cart-row{

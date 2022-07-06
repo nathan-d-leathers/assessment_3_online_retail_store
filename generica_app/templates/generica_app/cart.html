@@ -1,0 +1,52 @@
+{% extends "generica_app/layout.html" %}
+{% load static %}
+
+{% block cart-content %}
+<div class="container" id="cart-page">
+<div class="row">
+    <div class="col-lg-12" style="padding: 3% 2%">
+        <div class="box-element">
+            <a class="btn btn-outline-dark" href="home">&#x2190; Continue Shopping</a>
+            <br>
+            <br>
+            <table class="table">
+                <tr>
+                    <th><h5>Items: <strong>1</strong></h5></th>
+                    <th><h5>Total:<strong>$0.00</strong></h5></th>
+                    <th>
+                        <button style="float:right; margin:5px;" type="submit" href="home">Checkout</button>
+                    </th>
+                </tr>
+            </table>
+            <div class="cart-row">
+                <div style="flex:2"></div>
+                <div style="flex:2"><strong><u>Item</u></strong></div>
+                <div style="flex:1"><strong><u>Price</u></strong></div>
+                <div style="flex:1"><strong><u>Quantity</u></strong></div>
+                <div style="flex:1"><strong><u>Total</u></strong></div>
+            </div>
+            <div class="cart-row">
+                <div style="flex:2"><img class="row-image" src="static/assets/placeholder.jpeg"></div>
+                <div style="flex:2"><p>Product 1</p></div>
+                <div style="flex:1"><p>$0.00</p></div>
+                <div style="flex:1">
+                    <div class="quantity">
+                    <input type="number" step="1" min="1" max="99" name="quantity" value="1" title="Qty" class="input-text qty text" size="2" pattern="" inputmode="">
+                </div>
+                </div>
+                <div style="flex:1"><p>$0.00</p></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+<!-- checkout button
+
+<div>
+    <form action="/home">
+        <button type="submit">Checkout</button>
+        </form>
+</div>-->

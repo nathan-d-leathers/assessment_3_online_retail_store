@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from requests_oauthlib import OAuth1
 import requests as HTTP_Client
-from dotenv import load_dotenv
+import requests
 import json
+from dotenv import load_dotenv
 import os
 import pprint
-# from .models
+load_dotenv()
 
 electronics_list = [
     {
@@ -141,9 +143,16 @@ def index(request):
 
 def products(request):
     query = request.GET.get('query')
-    # auth = OAuth1(os.environ['apikey'], os.environ['secretkey']) .env file not working
-    auth = OAuth1('4863a4c3a62e416da5807ea7494b34c4',
-                  'd5d493e9dd16400f9825f1a7baa57bb1')
+    auth = OAuth1(os.environ['apikey'], os.environ['secretkey'])
+
+    # print(os.environ)
+    # keys found in environ
+    # api keys working now with .env
+    # Oauth1 not working, says module not found
+    # had to install pip instal requests requests_oauthlib to use
+    # working again but only on homepage
+    # working on searchpage
+
     endpoint = f"http://api.thenounproject.com/icon/{query}"
 
     API_response = requests.get(endpoint, auth=auth)
@@ -151,20 +160,24 @@ def products(request):
     image_url = JSON_API_response['icon']['preview_url']
     return JsonResponse({'url': image_url})
 
+
 def kitchen(request):
     data = {'kitchen_list': kitchen_list}
     response = render(request, 'generica_app/kitchen.html', data)
     return response
+
 
 def bed_and_bath(request):
     data = {'bed_and_bath_list': bed_and_bath_list}
     response = render(request, 'generica_app/bed_and_bath.html', data)
     return response
 
+
 def electronics(request):
     data = {'electronics_list': electronics_list}
     response = render(request, 'generica_app/electronics.html', data)
     return response
+
 
 def outdoors(request):
     data = {'outdoors_list': outdoors_list}

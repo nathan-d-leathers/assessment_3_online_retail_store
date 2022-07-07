@@ -25,6 +25,7 @@
                 <div style="flex:1"><strong><u>Quantity</u></strong></div>
                 <div style="flex:1"><strong><u>Total</u></strong></div>
             </div>
+            {% for item in cart_list %}
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="static/assets/placeholder.jpeg"></div>
                 <div style="flex:2"><p>Product 1</p></div>
@@ -36,17 +37,14 @@
                 </div>
                 <div style="flex:1"><p>$0.00</p></div>
             </div>
-
+            {% endfor %}
         </div>
     </div>
 </div>
 </div>
 {% endblock %}
 
-<!-- checkout button
+{% block cart-scripts%}
+<script src="/static/js/cart.js" defer></script>
+{% endblock %}
 
-<div>
-    <form action="/home">
-        <button type="submit">Checkout</button>
-        </form>
-</div>-->

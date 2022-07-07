@@ -135,6 +135,15 @@ kitchen_list = [
 
 # Create your views here.
 
+# Demo that cart will populate from this list
+# Issue I am tryign to solve:How do I retrieve data from catagory lists when button is submitted and append that data into this list
+
+cart_list = [
+    '1',
+    '2',
+    '3',
+]
+
 
 def index(request):
     response = render(request, 'generica_app/index.html')
@@ -145,13 +154,8 @@ def products(request):
     query = request.GET.get('query')
     auth = OAuth1(os.environ['apikey'], os.environ['secretkey'])
 
-    # print(os.environ)
-    # keys found in environ
-    # api keys working now with .env
     # Oauth1 not working, says module not found
     # had to install pip instal requests requests_oauthlib to use
-    # working again but only on homepage
-    # working on searchpage
 
     endpoint = f"http://api.thenounproject.com/icon/{query}"
 
@@ -186,10 +190,22 @@ def outdoors(request):
 
 
 def cart(request):
-    response = render(request, 'generica_app/cart.html')
+    data = {"cart_list": cart_list}
+    response = render(request, 'generica_app/cart.html', data)
     return response
 
 
 def searchpage(request):
     response = render(request, 'generica_app/searchpage.html')
     return response
+
+
+# not working cart function 
+
+# def add_to_cart(request):
+#     new_cart_item = {
+#             img_url: "img_url",
+#             title: "title",
+#             price: "price",
+#         }
+#     cart_list.append(new_cart_item)

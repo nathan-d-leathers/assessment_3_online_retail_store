@@ -138,11 +138,11 @@ product_list = [
 # Demo that cart will populate from this list
 # Issue I am trying to solve:How do I retrieve data from category lists when button is submitted and append that data into this list
 
-cart_list = [
-    '1',
-    '2',
-    '3',
-]
+# cart_list = [
+#     '1',
+#     '2',
+#     '3',
+# ]
 
 
 def index(request):
@@ -202,6 +202,32 @@ def cart(request):
 def searchpage(request):
     response = render(request, 'generica_app/searchpage.html')
     return response
+
+# -=-=-=---=-=-=-=-=-=-=-=-=-=-=-=-=-
+# adam/zaynab code example
+# need models page and to specify for my code
+
+# @csrf_exempt
+# def cart_item(request):
+#     cart_id = 1
+#     body = json.load(request.body)
+#     item_id = body['id']
+
+#     cart = Cart.objects.get(id=item_id)
+#     item = Item.objects.get(id=item_id)
+
+#     try:
+#         c_item = CartItem.objects.get(cart=cart, item=item)
+#         c_item.quantity += 1
+#         c_item.full_clean()
+#         c_item.save()
+#     except:
+#         c_item = CartItem(cart=cart, item=item)
+#         c_item.full_clean()
+#         c_item.save()
+#     else:
+
+#     return JsonResponse({'cart_item': c_item.item.id, 'item_quantity': c_item.quantity})
 
 
 # not working cart function

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+# from pyparsing import identchars
 from requests_oauthlib import OAuth1
 import requests as HTTP_Client
 import requests
@@ -212,3 +213,41 @@ def searchpage(request):
 #             price: "price",
 #         }
 #     cart_list.append(new_cart_item)
+
+
+# cart add identchars
+
+# for i in product_list:
+#     for product in i:
+#         if product['id']:
+#             cart_list.append({
+#             'img_url': product['img_url'],
+#             'title': product['title'],
+#             'price': product['price'],
+#         })
+
+# window.relocation.reload() reloads current html page
+
+# if using <form method="POST">
+    # add {% csrf_token %}
+
+    # add to click (make click button greyed out with new text reading added)
+
+#  add option collumn on cart to remove item (little x icon when pressed run remove_from_cart function)
+    # add a if that does search redirect if search input is in product list
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# skylar code for redirect
+
+# this is my js for redirect
+# async function search_for_product() {
+#     const search = document.getElementById('product-search').value;
+#     const jSearch = JSON.stringify(search);
+#     const res = await axios.post('/search_products',
+#         {
+#             'product_name': jSearch
+#         });
+#     window.location.href = `/product/${search}/`;
+# }
+
+# # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

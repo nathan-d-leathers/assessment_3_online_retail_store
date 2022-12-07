@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 # from pyparsing import identchars
+import requests
 from requests_oauthlib import OAuth1
 import requests as HTTP_Client
-import requests
 import json
 from dotenv import load_dotenv
 import os
@@ -152,7 +152,7 @@ def index(request):
 
 def products(request):
     query = request.GET.get('query')
-    auth = OAuth1(os.environ['apikey'], os.environ['secretkey'])
+    auth = OAuth1(os.environ['api_key'], os.environ['secret_key'])
 
     # Oauth1 not working, says module not found
     # had to install pip instal requests requests_oauthlib to use
@@ -194,8 +194,9 @@ def outdoors(request):
 
 
 def cart(request):
-    data = {"cart_list": cart_list}
-    response = render(request, 'generica_app/cart.html', data)
+    # data = {"cart_list": cart_list}
+    # add ,data to line 199 to pass cart props
+    response = render(request, 'generica_app/cart.html')
     return response
 
 

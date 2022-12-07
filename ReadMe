@@ -1,0 +1,13 @@
+To Run Project:
+
+- create env (retail_venv)
+- This project does not rely on db’s or models, so no need to make db or make migrations
+- $ pip install -r requirements.txt
+- $ python manage.py runserver
+
+To make Noun Api Work:
+- You need to generate an api key and secret api key from thenounproject.com
+- Create a .env file at the project folder level and create two separate variables:
+    api_key = "api key string"
+    secret_key = "secrete key string"
+In the views file the .env should get loaded from load_dotenv and parsed out by our os.envrion[variable]
